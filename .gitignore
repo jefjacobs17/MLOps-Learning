@@ -1,0 +1,15 @@
+# Python virtual environments
+.venv/
+.venv-repro/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local secrets and environment settings
+.env
+.env.*
+
+# Allow a safe example configuration
+!.env.example
