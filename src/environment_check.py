@@ -22,3 +22,13 @@ print(max_value)
 
 median_value = df["values"].median()
 print(median_value)
+
+# Function to validate numeric data
+def validate_numeric_data(df, column):
+    if column not in df.columns:
+        raise ValueError(f"Column '{column}' does not exist in the DataFrame.")
+    
+    if not pd.api.types.is_numeric_dtype(df[column]):
+        raise TypeError(f"Column '{column}' is not numeric.")
+    
+    return True
