@@ -29,6 +29,10 @@ def validate_numeric_data(df, column):
     if column not in df.columns:
         raise ValueError(f"Column '{column}' does not exist in the DataFrame.")
 
+    # Check whether the DataFrame is empty
+    if df.empty:
+        raise ValueError("The DataFrame is empty.")
+
     # Attempt to convert every value to a number
     numeric_values = pd.to_numeric(df[column], errors="coerce")
 
