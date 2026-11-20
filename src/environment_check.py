@@ -26,8 +26,8 @@ print(median_value)
 # Function to validate numeric data
 def validate_numeric_data(df, column):
     # Check whether the column exists
-    #if column not in df.columns:
-    #    raise ValueError(f"Column '{column}' does not exist in the DataFrame.")
+    if column not in df.columns:
+        raise ValueError(f"Column '{column}' does not exist in the DataFrame.")
 
     # Check whether the DataFrame is empty
     if df.empty:
