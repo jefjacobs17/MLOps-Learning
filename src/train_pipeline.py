@@ -4,7 +4,7 @@ from sys import argv
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-
+from src.model_evaluation import evaluate_model
 from src.data_validation import validate_numeric_data
 from src.model_training import train_model
 
@@ -72,7 +72,9 @@ def run_pipeline(test_size=0.2, seed=42):
     predictions = model.predict(X_test)
 
     # Evaluate
-    accuracy = accuracy_score(y_test, predictions)
+    acc_metrics = evaluate_model(model, X_test, y_test)
+    accuracy = acc_metrics["accuracy"]
+    #precision = acc_metrics["precision"]
 
     logger.info("Model accuracy: %.3f", accuracy)
 
